@@ -84,7 +84,7 @@ P(- | H1) = 1 - Sensitivity
 P(- | Ho) = 1 - P(+ | Ho) = 1 - (1-Specificity) = Specificity
 P(-) = TrueNegative + FalseNegative = P(- | Ho)*P(Ho) + P(- | H1)*P(H1)
 
-Propability: **P(- | Ho) = 84.39%**
+Propability: **P(H1 | -) = 84.39%**
 
 etc ...
 

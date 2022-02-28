@@ -50,21 +50,19 @@ The population prevelance is calculated with the following formula:
 
 **---- Hypothesis ----**
 
-**Ho**: Disease Free
-
+**Ho**: Disease Free \
 **H1**: Have Disease (SARS-CoV-2)
 
 **---- Outcomes ----**
 
-**+** : Positive test outcome
-
+**+** : Positive test outcome \
 **-** : Negative test outcome
 
 ---
 
 ### 1st Test: Estimate the probability of has SARS-CoV-2 (H1) given a positive test (+)
 ```
-P(H1 | +) = P(+ | H1) * P(H1) / P(+) (Bayes Rule)**
+P(H1 | +) = P(+ | H1) * P(H1) / P(+) (Bayes Rule)
 ```
 
 P(H1) = 0.0186 \

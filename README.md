@@ -101,7 +101,7 @@ YES this will be the outcome if the experiments have take care by experts in a l
 BUT in a Point-of-Care location (e.g. pharmacies, doctor offices, homes,  etc.) the probability of incorrect sampling is high.
 
 ---
-## Re-estimate the probabilities in a Point of Care
+## Re-estimate the probabilities in a Point-of-Care
 
 In a Point of Care, you or the person who will do the sampling of the mucus and cells will not be so finicky as a medical professional in lab. \
 This will play significant role in SARS-CoV-2 (COVID-19) catching. In other words, the cases of not caching the virus will be higher (False Negatives).
@@ -113,14 +113,22 @@ Sensitivity, is the metric which describes what proportion of the actual positiv
 Let's plot the correlation between the Sensitivity and the probability of actually having SARS-CoV-2.
 Also add a cut of point (vertical dash line) with the estimated `Point-of-Care Sensitivity = 0.789`, [source](https://www.healthline.com/health/how-accurate-are-rapid-covid-tests).
 
-![title](plots/sensitivity_vs_probability.png)
-
-
 Finally, we re-estimate the probabilities of the four sequential tests by using the `Point-of-Care Sensitivity = 0.789` in our formulas:
 
 ![title](plots/point_of_care_probabilities.png)
 
 Now the results are not so clear with the probability of infected from COVID-19 being higher!!
+
+## Summarize
+The "accuracy" of a test is higly correlated with the sampling circumstances.
+
+
+![title](plots/sensitivity_vs_probability.png)
+
+In the first case (Green), we conclude that the first positive test was not sufficient to conclude that the subject was infected ( **P(H1 | -) = 0.46%**) \
+In the second case (Red), the results are significant different and conclude that the subject is possible to be infected ( **P(H1 | -) = 58%**)
+
+It's worth to mention that the `Point-of-Care Sensitivity = 0.789` could be lower in specific occuations and the probability of being infected much higher
 
 **NOTE: The code and the plots created from the Multiple Rapid Tests Probability Estimation.ipynb**
 

@@ -145,7 +145,7 @@ On the other hand, with a first positive test the probability of having the dese
 All the knowledge in three bullets:
 * A positive test is significant and need more that five tests to doubt the positive result.
 * If the desease has a low population infection and the first test is negative its probable negative.
-* If the infection of the population is high more negative tests needed to prove the no infection
+* If the infection of the population is high, then more negative tests needed to prove the no infection
 
 **NOTE: The code and the plots created from the Multiple Rapid Tests Probability Estimation.ipynb**
 

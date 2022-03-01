@@ -65,11 +65,11 @@ The population prevelance is calculated with the following formula:
 P(H1 | +) = P(+ | H1) * P(H1) / P(+) (Bayes Rule)
 ```
 
-P(H1) = 0.0186 \
-P(Ho) = 1 - P(H1) \
+P(H1)     = 0.0186 \
+P(Ho)     = 1 - P(H1) \
 P(+ | H1) = Sensitivity \
 P(+ | Ho) = 1-Specificity \
-P(+) = TruePositive + FalsePositive = P(+ | H1)*P(H1) + P(+ | Ho)*P(Ho)
+P(+)      = TruePositive + FalsePositive = P(+ | H1)*P(H1) + P(+ | Ho)*P(Ho)
 
 Propability: **P(H1 | +) = 99.45%**
 
@@ -80,11 +80,11 @@ Propability: **P(H1 | +) = 99.45%**
 P(H1 | -) = P(- | H1) * P(H1) / P(-) (Bayes Rule)
 ```
 
-P(H1) = 0.645 (Previous test probability) \
-P(Ho) = 1 - P(H1) \
+P(H1)     = 0.645 (Previous test probability) \
+P(Ho)     = 1 - P(H1) \
 P(- | H1) = 1 - Sensitivity \
 P(- | Ho) = 1 - P(+ | Ho) = 1 - (1-Specificity) = Specificity \
-P(-) = TrueNegative + FalseNegative = P(- | Ho)*P(Ho) + P(- | H1)*P(H1)
+P(-)      = TrueNegative + FalseNegative = P(- | Ho)*P(Ho) + P(- | H1)*P(H1)
 
 Propability: **P(H1 | -) = 84.39%**
 
@@ -119,7 +119,6 @@ Finally, we re-estimate the probabilities of the four sequential tests by using 
 
 Now the results are not so clear with the probability of infected from COVID-19 being higher!!
 
-## Summarize
 The "accuracy" of a test is higly correlated with the sampling circumstances.
 
 
@@ -130,7 +129,25 @@ In the second case (Red), the results are significant different and conclude tha
 
 It's worth to mention that the `Point-of-Care Sensitivity = 0.789` could be lower in specific occuations and the probability of being infected much higher
 
-**NOTE: The code and the plots created from the Multiple Rapid Tests Probability Estimation.ipynb**
+---
+### Let's test something different.. 
+How likely is someone has SARS-CoV-2 with only negative outcomes?
 
+![title](plots/only_negative_outcomes.png)
+
+What?? **0.39%** from the first test? Why so low?
+
+---
+## Summarize the results
+Without a positive test the probability of being infected is extremely low. The reason for that is the "magic" behind Bayes theorem.\
+Without an initial positive test the prior probability is the population prevelence which is quite low (1.86%). \
+On the other hand, with a first positive test the probability of having the desease is quite high (>99%) and the subject needs five or more sequential negative tests to be sure for a negative outcome.
+
+All the knowledge in three bullets:
+* A positive test is significant and need more that five tests to doubt the positive result.
+* If the desease has a low population infection and the first test is negative its probable negative.
+* If the infection of the population is high more negative tests needed to prove the no infection
+
+**NOTE: The code and the plots created from the Multiple Rapid Tests Probability Estimation.ipynb**
 
 :beers: Cheers!

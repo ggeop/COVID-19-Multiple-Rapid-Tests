@@ -137,7 +137,6 @@ How likely is someone has SARS-CoV-2 with only negative outcomes?
 
 What?? **0.39%** from the first test? Why so low?
 
----
 ## Summarize the results
 Without a positive test the probability of being infected is extremely low. The reason for that is the "magic" behind Bayes theorem.\
 Without an initial positive test the prior probability is the population prevelence which is quite low (1.86%). \

@@ -1,11 +1,14 @@
 
-The above exercise has been done to highlight the importance of test sampling and how Bayes probabilities go against our intuition.
+The above exercise has been done to highlight the importance of test sampling and how Bayes probabilities go against our intuition. \
+***NOTE:*** *The following analysis is focused on SARS-CoV-2 (COVID-19) Rapid Tests / Antigen Tests but the concept and the maths behind that can easily generallized in other tests.*
 
-# Main Question
-What is the probability someone has SARS-CoV-2 (COVID-19) if he has one positive Rapid test and then only negatives?
+# Questions
+* What is the probability someone has SARS-CoV-2 (COVID-19) if he has one positive Rapid test and then only negatives?
+* If someone do a single test with negative result for SARS-CoV-2 (COVID-19), what is the probability of being infected?
+* What other parameters is affect test results?
 
-## Scenario :syringe:
-The subject runs the following Rapid Tests in a Point-of-Care **(Important: Give attention on that detail)**:
+## Real Life Scenario :syringe:
+Someone (we can call him Jake :man:), runs the following sequential Rapid Tests in a Point-of-Care:
 * Test 1: Positive (+)
 * Test 2: Negative (-)
 * Test 3: Negative (-)
@@ -15,6 +18,13 @@ The subject runs the following Rapid Tests in a Point-of-Care **(Important: Give
 * All the tests take care in the same time.
 * All the tests are from the same brand
     
+
+Now :man: is confused :confused:, he don't know if he is infected or not, have to stay home or not..
+But, :man: has basical statical knowledge and he can estimate the probability of being infected :smiling_imp:
+
+:man: started his analysis by ground the initial probabilities without giving too much attention on them because
+he focused on metrics relationships and not so much on the actual initial values.
+
 ---
 
 ### Rapid Test Performance Metrics
@@ -62,14 +72,14 @@ The population prevelance is calculated with the following formula:
 
 ### 1st Test: Estimate the probability of has SARS-CoV-2 (H1) given a positive test (+)
 ```
-P(H1 | +) = P(+ | H1) * P(H1) / P(+) (Bayes Rule)
+P(H1 | +) = P(+ | H1) x P(H1) / P(+) (Bayes Rule)
 ```
 
 P(H1)     = 0.0186 \
 P(Ho)     = 1 - P(H1) \
 P(+ | H1) = Sensitivity \
 P(+ | Ho) = 1-Specificity \
-P(+)      = TruePositive + FalsePositive = P(+ | H1)*P(H1) + P(+ | Ho)*P(Ho)
+P(+)      = TruePositive + FalsePositive = P(+ | H1) x P(H1) + P(+ | Ho) x P(Ho)
 
 Propability: **P(H1 | +) = 99.45%**
 
@@ -77,14 +87,14 @@ Propability: **P(H1 | +) = 99.45%**
 
 ### 2nd Test: Estimate the probability of has SARS-CoV-2 (H1) given a negative test (-)
 ```
-P(H1 | -) = P(- | H1) * P(H1) / P(-) (Bayes Rule)
+P(H1 | -) = P(- | H1) x P(H1) / P(-) (Bayes Rule)
 ```
 
 P(H1)     = 0.645 (Previous test probability) \
 P(Ho)     = 1 - P(H1) \
 P(- | H1) = 1 - Sensitivity \
 P(- | Ho) = 1 - P(+ | Ho) = 1 - (1-Specificity) = Specificity \
-P(-)      = TrueNegative + FalseNegative = P(- | Ho)*P(Ho) + P(- | H1)*P(H1)
+P(-)      = TrueNegative + FalseNegative = P(- | Ho) x P(Ho) + P(- | H1) x P(H1)
 
 Propability: **P(H1 | -) = 84.39%**
 
@@ -95,10 +105,10 @@ Finally, we have the following probabilities for the four sequential tests:
 ![title](plots/ideal_probabilities.png)
 
 
-xmm... the probability for having SARS-CoV-2 looks very low after 3 sequential negative tests! Yeah no infection!! \
+:man: xmm... the probability for having SARS-CoV-2 looks very low after 3 sequential negative tests! Yeah no infection!! \
 YES this will be the outcome if the experiments have take care by experts in a laboratory environment.
 
-BUT in a Point-of-Care location (e.g. pharmacies, doctor offices, homes,  etc.) the probability of incorrect sampling is high.
+BUT in a Point-of-Care location (e.g. pharmacies, doctor offices, homes,  etc.) the probability of incorrect sampling is high :unamused:.
 
 ---
 ## Re-estimate the probabilities in a Point-of-Care
@@ -135,17 +145,26 @@ How likely is someone has SARS-CoV-2 with only negative outcomes?
 
 ![title](plots/only_negative_outcomes.png)
 
-What?? **0.39%** from the first test? Why so low?
+:flushed: What?? **0.39%** from the first test? Why so low?
 
-## Summarize the results
+## Conclusions
+
 Without a positive test the probability of being infected is extremely low. The reason for that is the "magic" behind Bayes theorem.\
-Without an initial positive test the prior probability is the population prevelence which is quite low (1.86%). \
-On the other hand, with a first positive test the probability of having the desease is quite high (>99%) and the subject needs five or more sequential negative tests to be sure for a negative outcome.
+Without an initial positive test the prior probability is the population prevelence which is quite low (1.86%). On the other hand,  \
+with a first positive test the probability of having the desease is quite high (>99%) and the subject needs five or more sequential \
+negative tests to be sure for a negative outcome.
 
-All the knowledge in three bullets:
-* A positive test is significant and need more that five tests to doubt the positive result.
+In summary, the probability of being infected it depends on:
+* The population infection
+* Test performance metrics (Sensitivity, Specificity)
+* Test location (Laboratory or Point-of-Care) which affects the Test perfomance metrics (Sensitivity, Specificity)
+
+
+All the knowledge in few bullets:
+* A positive test is significant and needs many tests to "cancel" the positive result.
 * If the desease has a low population infection and the first test is negative its probable negative.
-* If the infection of the population is high, then more negative tests needed to prove the no infection
+* If the infection of the population is high, then more negative tests needed to prove the no infection.
+* The location of the test (Laboratory or Point-of-Care) can significally affect the results.
 
 **NOTE: The code and the plots created from the Multiple Rapid Tests Probability Estimation.ipynb**
 
